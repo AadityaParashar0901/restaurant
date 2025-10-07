@@ -1,6 +1,7 @@
 <?php
 session_start();
-$connection = mysqli_connect("db.fr-pari1.bengt.wasmernet.com:10272","19141210731280008e6fc7ccdf02", "068d1914-1210-74f9-8000-23bd0102d462") or die("Connection Failed");
+$connection = mysqli_connect("localhost","root", "") or die("Connection Failed");
+// $connection = mysqli_connect("db.fr-pari1.bengt.wasmernet.com:10272","19141210731280008e6fc7ccdf02", "068d1914-1210-74f9-8000-23bd0102d462") or die("Connection Failed");
 $connection->query("CREATE DATABASE IF NOT EXISTS restaurant");
 $connection->query("USE restaurant");
 $connection->query("CREATE TABLE IF NOT EXISTS items (
