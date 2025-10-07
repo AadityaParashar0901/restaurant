@@ -25,13 +25,4 @@ $connection->query("CREATE TABLE IF NOT EXISTS users (
     full_name VARCHAR(100) NOT NULL,
     phone VARCHAR(15) NOT NULL
 )");
-$connection->query("CREATE TABLE IF NOT EXISTS cart (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    item_name VARCHAR(100) NOT NULL,
-    item_id INT(11) NOT NULL,
-    quantity INT(11) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (item_id) REFERENCES items(id)
-)");
 ?>
