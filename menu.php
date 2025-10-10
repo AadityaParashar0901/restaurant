@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">í´¥ Sizzle Spot</div>
+    <div class="logo">Sizzle Spot</div>
     <nav>
       <a href="index.php">Home</a>
       <a href="menu.php" class="active">Menu</a>

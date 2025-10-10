@@ -28,7 +28,7 @@ $result = mysqli_query($conn, "SELECT * FROM menu_items");
 </head>
 <body>
   <header>
-    <div class="logo">í´¥ Admin Panel</div>
+    <div class="logo">Admin Panel</div>
     <nav>
       <a href="index.php">Home</a>
       <a href="menu.php">Menu</a>

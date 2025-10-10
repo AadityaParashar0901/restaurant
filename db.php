@@ -1,6 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
+$servername = "";
+$username = "";
 $password = "";
 $database = "sizzle_spot";
 
@@ -10,4 +10,3 @@ if($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 ?>
-
