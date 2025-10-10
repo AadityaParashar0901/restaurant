@@ -1,19 +1,52 @@
-<?php include "header.html"; ?>
-  <section>
-    <h2>Our Menu</h2>
-    <p>Fresh, flavorful, and fully plant-based. Add or edit menu items easily below.</p>
-    <div class="menu-grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80" alt="Buddha Bowl">
-        <h3>Buddha Bowl</h3>
-        <p>Colorful veggies, quinoa, chickpeas & tahini dressing.</p>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1604908177445-07e8f31e5fd2?q=80" alt="Avocado Toast">
-        <h3>Avocado Toast</h3>
-        <p>Whole-grain bread topped with smashed avocado & microgreens.</p>
-      </div>
+<?php include 'db.php'; ?>
+<?php include 'config.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu | Sizzle Spot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">í´¥ Sizzle Spot</div>
+    <nav>
+      <a href="index.php">Home</a>
+      <a href="menu.php" class="active">Menu</a>
+      <a href="cart.php">Cart</a>
+      <a href="login.php">Login</a>
+    </nav>
+  </header>
 
+  <section class="menu">
+    <h1>Our Menu</h1>
+    <div class="menu-container">
+      <?php
+      $sql = "SELECT * FROM menu_items";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+          echo "
+          <div class='card'>
+            <img src='assets/{$row['image']}' alt='{$row['name']}'>
+            <h3>{$row['name']}</h3>
+            <p>â‚¹{$row['price']}</p>
+            <form method='post' action='cart.php'>
+              <input type='hidden' name='item_id' value='{$row['id']}'>
+              <button type='submit' name='add_to_cart'>Add to Cart</button>
+            </form>
+          </div>";
+        }
+      } else {
+        echo "<p>No menu items yet.</p>";
+      }
+      ?>
     </div>
   </section>
-<?php include "footer.html"; ?>
+
+  <footer>
+    <p>Â© 2025 Sizzle Spot. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
+
